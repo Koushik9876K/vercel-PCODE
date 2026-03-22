@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger Setup Tutorial</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .tutorial-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .step-container {
+            margin-bottom: 40px;
+        }
+
+        .step-header {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .screenshot-box {
+            width: 100%;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: block;
+        }
+
+        p {
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        /* Code Box Styling */
+        .code-wrapper {
+            position: relative;
+            background: #1e1e1e;
+            border-radius: 8px;
+            margin-top: 15px;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .code-label {
+            color: #9ca3af;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .copy-button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .copy-button:hover {
+            background: #2563eb;
+        }
+
+        .copy-button.success {
+            background: #10b981;
+        }
+
+        pre {
+            margin: 0;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #d1d5db;
+            font-size: 14px;
+            white-space: pre;
+        }
+
+        strong {
+            color: #111827;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tutorial-card">
+    <h1>How To SetUp Your Blogger</h1>
+
+    <div class="step-container">
+        <div class="step-header"># Go to your blogger Dashboard > Pages</div>
+        <p>Login to your Blogger account. On the left sidebar menu, click on the <strong>Pages</strong> tab.</p>
+        
+        <img src="https://via.placeholder.com/800x400?text=Your+Screenshot+Here" alt="Blogger Dashboard Screenshot" class="screenshot-box">
+    </div>
+
+    <div class="step-container">
+        <div class="step-header"># Create New page name survey (make sure select HTML View)</div>
+        <p>Click on <strong>New Page</strong>, enter <strong>"survey"</strong> as the title. Click the pencil icon and switch to <strong>HTML View</strong>.</p>
+    </div>
+
+    <div class="step-container">
+        <div class="step-header"># Copy the code below and paste it on your blogger page.</div>
+        
+        <div class="code-wrapper">
+            <div class="code-header">
+                <span class="code-label">HTML Code</span>
+                <button class="copy-button" onclick="copySnippet()">Copy Code</button>
+            </div>
+            <pre><code id="tutorialCode">
+              &lt;script&gt;
+              // Get job_id and worker_id from URL parameters
+              const urlParams = new URLSearchParams(window.location.search);
+              const job_id = urlParams.get("job");
+              const worker_id = urlParams.get("worker");
+              
+              // Store job_id and worker_id in localStorage
+              localStorage.setItem("identity", job_id + worker_id);
+          &lt;/script&gt;
+            </code></pre>
+        </div>
+    </div>
+
+      <div class="step-container">
+        <div class="step-header"># Also add your Content locker Code survey page.</div>
+    </div>
+
+
+    <!-- Step 2 -->
+         <div class="step-container">
+        <div class="step-header"># Create New page name pcode (make sure select HTML View)</div>
+        <p>Click on <strong>New Page</strong>, enter <strong>"pcode"</strong> as the title. Click the pencil icon and switch to <strong>HTML View</strong>.</p>
+    </div>
+
+    <div class="step-container">
+        <div class="step-header"># Copy the code below and paste it on your blogger page.</div>
+        
+        <div class="code-wrapper">
+            <div class="code-header">
+                <span class="code-label">HTML Code</span>
+                <button class="copy-button" onclick="copySnippet()">Copy Code</button>
+            </div>
+            <pre><code id="tutorialCode2">
+              &lt;script&gt;
+              // Get job_id and worker_id from URL parameters
+              const urlParams = new URLSearchParams(window.location.search);
+              const job_id = urlParams.get("job");
+              const worker_id = urlParams.get("worker");
+              
+              // Store job_id and worker_id in localStorage
+              localStorage.setItem("identity", job_id + worker_id);
+          &lt;/script&gt;
+            </code></pre>
+        </div>
+    </div>
+</div>
+
+<script>
+    function copySnippet() {
+        const codeElement = document.getElementById('tutorialCode');
+        const textToCopy = codeElement.innerText;
+        
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const btn = document.querySelector('.copy-button');
+            const originalText = btn.innerText;
+            
+            btn.innerText = 'Copied!';
+            btn.classList.add('success');
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('success');
+            }, 2000);
+        });
+    }
+</script>
+
+</body>
+</html>
